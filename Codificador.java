@@ -29,6 +29,18 @@ public class Codificador {
         this.msg = msg;
     
     }
+ 
+    public void executa(){
+        contaFreq();
+        orderaHash();
+        juntaString();
+        criaArvore(junto);
+        getCodigos();
+        setaCodigo();
+        escreveCodigo();
+        escreveDicionario();
+    
+    }
     
     public void contaFreq(){                // CONTA A FREQUENCIA DOS CARACTERES NA MENSAGEM
         for(int i=0; i<msg.length();i++){           
