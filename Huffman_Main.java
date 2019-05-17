@@ -16,23 +16,22 @@ public class Huffman {
         
     BufferedReader br = null;
     br = new BufferedReader(new InputStreamReader(System.in));   
+    String Path = "c:/dir1/dir2/dir3";
     
     String mensagem;   
     Codificador cod;
-    Decodificador decod;
+    Decodifica decod;
     
     
-
     System.out.println("HUFFMAN");
     System.out.println("Digite a sua mensagem:");
     mensagem = br.readLine();
-    cod = new Codificador(mensagem);
+    cod = new Codificador(mensagem,Path);
     cod.executa();
-    ////////////////////////////////////////
-        
-              DECODIFICADOR
-    ///////////////////////////////////////
-    
+    decod = new Decodifica();
+    decod.criaHash(Path);
+    decod.criaArquivo(Path);
     }
     
 }
+
