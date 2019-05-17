@@ -1,4 +1,7 @@
 
+package huffman;
+
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -19,13 +22,15 @@ public class Codificador {
     private String codigo;  // msg codificada
     private String junto;   // STRING AUXILIAR ARVORE EX: AEOBCE
     private String Dicionariofinal; // MSG DICIONARIO FORMATO A:11111
+    private String file;
      
     private HashMap<Character, Integer> freq;       // HASH MAP FREQUECIA EX: A - 10
     private HashMap<Character, Integer> freqOrd;    // HASH MAP COM A FREQUENCIA ORDENADA MAIOR PRO MENOR
     private HashMap<Character, String> dicionario;  // HASH MAP DICIONARIO EX: A - 11111        
     private ArvoreSimples arvore;
 
-    public Codificador(String msg) {
+    public Codificador(String msg,String f) {
+        file = f;
         this.msg = msg;
     
     }
@@ -79,7 +84,7 @@ public class Codificador {
             String aux1a = junto.substring(0, (junto.length()/2));
             String aux1b = junto.substring((junto.length()/2));
             arvore.adiciona(arvore.getNodo(aux),aux1a);
-            arvore.adiciona(aux.getNodo(aux),aux1b);
+            arvore.adiciona(arvore.getNodo(aux),aux1b);
             criaArvore(aux1a);
             criaArvore(aux1b);
         }  
@@ -104,7 +109,7 @@ public class Codificador {
     
     public void escreveCodigo(){        // ESCREVE NO ARQUIVO TEXTO A MSG CODIFICADA
         try {
-            File newTextFile = new File("C:/binario.txt");
+            File newTextFile = new File(file);
 
             FileWriter fw = new FileWriter(newTextFile);
             fw.write(codigo);
@@ -118,7 +123,7 @@ public class Codificador {
     public void escreveDicionario(){        // ESCREVE DICIONARIO NO ARQUIVO TEXTO
         try {
 
-            File newTextFile = new File("C:/tabela.txt");
+            File newTextFile = new File(file);
 
             FileWriter fw = new FileWriter(newTextFile);
             fw.write(Dicionariofinal);
