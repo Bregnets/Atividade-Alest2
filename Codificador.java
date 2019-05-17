@@ -23,7 +23,7 @@ public class Codificador {
     private HashMap<Character, Integer> freq;       // HASH MAP FREQUECIA EX: A - 10
     private HashMap<Character, Integer> freqOrd;    // HASH MAP COM A FREQUENCIA ORDENADA MAIOR PRO MENOR
     private HashMap<Character, String> dicionario;  // HASH MAP DICIONARIO EX: A - 11111        
-    private BST arvore;
+    private ArvoreSimples arvore;
 
     public Codificador(String msg) {
         this.msg = msg;
@@ -73,13 +73,13 @@ public class Codificador {
     }
    
     public void criaArvore(String j){           // CRIA A ARVORE
-        arvore.insert(junto);
+        arvore.adiciona(junto);
         while(junto.length()>1){
             String aux = junto;
             String aux1a = junto.substring(0, (junto.length()/2));
             String aux1b = junto.substring((junto.length()/2));
-            arvore.insert(arvore.,aux1a);
-            arvore.insert(aux,aux1b);
+            arvore.adiciona(arvore.getNodo(aux),aux1a);
+            arvore.adiciona(aux.getNodo(aux),aux1b);
             criaArvore(aux1a);
             criaArvore(aux1b);
         }  
